@@ -1,0 +1,12 @@
+{
+  "name": "Phar",
+  "displayName": "Phar",
+  "expo": {
+    "name": "Phar",
+    "slug": "Phar",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
