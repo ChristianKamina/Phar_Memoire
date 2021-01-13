@@ -53,6 +53,10 @@ export default class Authentification extends Component{
         this.props.navigation.navigate('INSCRIPTION');
     }
 
+    onReset(){
+        this.props.navigation.navigate('RESET');
+    }
+
     render() {
         return (
             <ScrollView style={styles.container}>

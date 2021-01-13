@@ -6,7 +6,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Authentification from './Components/Connection/Authentification';
 import {Provider as PaperProvider} from 'react-native-paper';
 import R from './ressources/style.json';
-import Inscription from './Components/Connection/Inscription'
+import Inscription from './Components/Connection/Inscription';
+import ResetPassword from './Components/Connection/ResetPasseword';
 
 
 const Stack=createStackNavigator();
@@ -23,6 +24,7 @@ export default function App (){
                   }}>
                     <Stack.Screen  name="AUTHENTIFICATION" component={Authentification} options={{title:'Authentification'}}/>
                     <Stack.Screen  name="INSCRIPTION" component={Inscription} options={{title:'Inscription'}}/>
+                    <Stack.Screen  name="RESET" component={ResetPassword} options={{title:'Mot de passe oublié'}}/>
                 </Stack.Navigator>
               </NavigationContainer>
     )
