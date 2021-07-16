@@ -5,6 +5,71 @@ import { ImageBackground } from 'react-native';
 
 
 export default class Inscription extends Component{
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            Users: [],
+            title:"Inscription",
+            message:"Patientez, SVP!",
+            visibility:false
+        };
+        this.noms= "",
+        this.e_mail= "",
+        this.pwd= "",
+        this.C_pwd= "",
+        this.phone= "",
+        this.titre= ""
+      };
+
+      _NomsInput(noms){
+            this.noms=noms;
+      }
+
+      _EmailInput(e_mail){
+          this.e_mail=e_mail;
+      }
+
+      _PwdInput(pwd){
+          this.pwd=pwd;
+      }
+
+      _ConfirmePwdInput(C_pwd){
+          this.C_pwd=C_pwd;
+      }
+
+      _TelephoneInput(phone){
+          this.phone=phone;
+      }
+
+      _TitreInput(titre){
+          this.titre=titre;
+      }
+
+      Register=()=>{
+        try {
+            if((this.noms.length > 0) && (this.e_mail.length > 0) && (this.pwd.length > 0) && (this.C_pwd.length > 0) && (this.phone.length > 0) && (this.titre.length > 0) )
+            {
+                let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if (reg.test(this.e_mail) === false) {
+                    Alert.alert("Inscription",
+                    "Votre Adresse mail n'est pas correct");
+                }
+                else{
+                    
+                }
+            }
+
+            else{
+                Alert.alert("Inscription", "Les champs vides")
+            }
+
+            } catch (error) {
+            alert(error)    
+        }
+    }
+
     render(){
         return(
                 <ScrollView style={{flex:1}}>
@@ -17,42 +82,42 @@ export default class Inscription extends Component{
                             <TextInput 
                                 placeholder="Noms" 
                                 style={styles.textiputstyle}
-                                onChangeText={(name) =>this._Lastnameinput(name)}/>
+                                onChangeText={(name) =>this._NomsInput(name)}/>
 
                             <TextInput style={styles.textiputstyle} 
                                     placeholder="Adresse mail"
                                     keyboardType="email-address"
-                                    onChangeText={(text) => this._EmailInput(text)}
+                                    onChangeText={(text) => this._EmailInput(e_mail)}
                                 />
 
                             <TextInput
                                 placeholder="Mot de passe"
                                 style={styles.textiputstyle}
                                 secureTextEntry={true}
-                                onChangeText={(name) =>  this._Firstnameinput(name)}
+                                onChangeText={(name) =>  this._PwdInput(pwd)}
                             />
                             <TextInput
                                 placeholder="Confirmer mot de passe"
                                 style={styles.textiputstyle}
                                 secureTextEntry={true}
-                                onChangeText={(name) =>  this._Firstnameinput(name)}
+                                onChangeText={(name) =>  this._ConfirmePwdInput(C_pwd)}
                             />
 
                             <TextInput
                                 placeholder="Numéro téléphone"
                                 style={styles.textiputstyle}
                                 secureTextEntry={true}
-                                onChangeText={(name) =>  this._Firstnameinput(name)}
+                                onChangeText={(name) =>  this._TelephoneInput(phone)}
                             />
                             <TextInput
                                 placeholder="Titre"
                                 style={styles.textiputstyle}
                                 secureTextEntry={true}
-                                onChangeText={(name) =>  this._Firstnameinput(name)}
+                                onChangeText={(name) =>  this._TitreInput(titre)}
                             />
                         </View>
-                        <TouchableHighlight style={styles.touchable_style} onPress={()=> this.signIn()}>
-                                <Text style={styles.text_style}>S'inscrire</Text>
+                        <TouchableHighlight style={styles.touchable_style} onPress={()=> this.Register()}>
+                                <Text style={{fontWeight: "bold", fontSize: 15, color: '#f0f0f0'}}>S'inscrire</Text>
                         </TouchableHighlight>
                     </View>
                 </ScrollView>

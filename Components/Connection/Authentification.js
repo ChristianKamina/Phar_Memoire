@@ -134,7 +134,8 @@ export default class Authentification extends Component{
     },
     text_style: {
         fontSize: 15,
-        color: '#f0f0f0'
+        color: '#f0f0f0',
+        fontWeight: "bold"
     },
     View_other: {
         paddingTop: 10
